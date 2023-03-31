@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(177, 224, 234, 0.9);
+}
+
+.container {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 1px 39px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 10px 1px 39px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 1px 39px 0px rgba(0, 0, 0, 0.75);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#emoji {
+    display: flex;
+}
+
+.emo {
+    text-align: center;
+    margin:-10px 8px 20px;
+    width: 90px;
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
+.active {
+    background-color: gold;
+
+}
+#btn{
+    background-color: rgb(15, 54, 57);
+    width: 120px;
+    padding: 10px;
+    color: white;
+    border: none;
+}
