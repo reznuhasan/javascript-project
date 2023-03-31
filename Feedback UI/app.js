@@ -1,6 +1,6 @@
 const emojies=document.querySelectorAll(".emo");
 const btn=document.getElementById('btn');
-let content='';
+let content='No Feedback';
 emojies.forEach(emoji=>{
     emoji.addEventListener('click',()=>{
         emojies.forEach(emoji=>emoji.classList.remove('active'));
@@ -13,25 +13,6 @@ emojies.forEach(emoji=>{
         }else{
             content='Satisfied'
         }
-        btn.addEventListener('click',()=>{
-           const container= document.getElementById('container');
-           container.innerText=' ';
-           const h1=document.createElement('h1');
-           h1.innerText='Thank You!';
-           container.append(h1)
-           h1.style.color='darkgreen';
-           const h4=document.createElement('h4');
-           h4.innerHTML=`Feedback: ${content}`
-           h4.style.color='darkgreen';
-           const p=document.createElement('p');
-           p.innerText="We'll use your Feedback to improve our customer support"
-           p.style.color='green'
-           p.style.textAlign='center'
-           container.append(h4)
-           container.append(p)
-           
-        })
-        
     })
 })
 btn.addEventListener('click',()=>{
@@ -42,7 +23,7 @@ btn.addEventListener('click',()=>{
     container.append(h1)
     h1.style.color='darkgreen';
     const h4=document.createElement('h4');
-    h4.innerHTML=`Feedback: No Feedback`
+    h4.innerHTML=`Feedback: ${content}`
     h4.style.color='darkgreen';
     const p=document.createElement('p');
     p.innerText="We'll use your Feedback to improve our customer support"
