@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#content-box{
+    background-color: tan;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    margin-top: 5%;
+}
+h1{
+    color:blue;
+}
+.textB{
+    color:darkblue;
+}
+form{
+    background-color: lightblue;
+    width: 70%;
+    text-align: center;
+    color: darkgreen;
+    font-size: 18px;
+    padding: 10px 0px;
+}
+.inputField{
+    width: 60%;
+    margin:5px 0px;
+    padding: 10px 0px;
+    border-radius: 5px;
+}
+
+.account-container{
+    display: flex;
+}
+.moneyBox{
+    font-size: 18px;
+    text-align: center;
+    padding: 15px 70px;
+    margin:10px;
+    color:whitesmoke;
+    border-radius: 5px;
+}
+#deposit{
+    background-color: rgb(17, 180, 17);
+}
+#withdraw{
+    background-color: palevioletred;
+}
+#balance{
+    background-color: coral;
+}
+.user{
+    display: flex;
+}
+.add-box{
+    width: 300px;
+    height: 150px;
+    background-color: darkblue;
+    color: darkgreen; 
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#deposit-box{
+    background-color: cyan;
+}
+#withdraw-box{
+    background-color: lightblue;
+}

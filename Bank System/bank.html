@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="content-box">
+        <h1>Let's Go Some<span class="textB"> Money!!!</span></h1>
+        
+        <div class="account-container">
+            <div class="moneyBox" id="deposit">
+                <h3>Deposit</h3>
+                <p>$<span id="depositMoney">00</span></p>
+            </div>
+            <div class="moneyBox" id="withdraw">
+                <h3>Withdraw</h3>
+                <p>$<span id="withdrawMoney">00</span></p>
+            </div>
+            <div class="moneyBox" id="balance">
+                <h3>Balance</h3>
+                <p>$<span id="totalMoney">1250</span></p>
+            </div>
+        </div>
+
+        <div class="user">
+            <div class="add-box" id="deposit-box">
+                <h3>Please Deposit</h3>
+                <input type="text" id="depositInput" placeholder="enter your amount">
+                <button id="depositBtn">Deposit</button>
+            </div>
+            <div class="add-box" id="withdraw-box">
+                <h3>Please Withdraw</h3>
+                <input type="text" id="withdrawInput" placeholder="enter your amount">
+                <button id="withdrawBtn">Withdraw</button>
+            </div>
+        </div>
+    </div>
+    <script src="bank.js"></script>
+</body>
+
+</html>
