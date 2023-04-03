@@ -46,6 +46,7 @@ const setArea=(value,name)=>{
     const convertBtns=document.querySelectorAll('#area-box .convert')
     convert(convertBtns)
 }
+// Convert Part
 const convert=(convertBtns)=>{
     convertBtns.forEach(btn=>{
         btn.addEventListener('click',(e)=>{
@@ -53,7 +54,7 @@ const convert=(convertBtns)=>{
             const para=childs[1];
             const valueElem=para.children[0];
             const contentElem=para.children[1];
-            const value=parseFloat(valueElem.innerText)
+            const value=parseFloat(valueElem.innerText).toFixed(4)
             if(contentElem.innerText==='cm'){
                 const meter=value/100;
                 valueElem.innerText=meter;
@@ -103,3 +104,22 @@ btns.forEach(btn=>btn.addEventListener('click',()=>{
         }
     }
 }))
+
+// Random Background Color of anyBox when it's hover
+const colors=[1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+
+const boxes=document.querySelectorAll('.box')
+console.log(boxes)
+boxes.forEach(box=>{
+    box.addEventListener('mouseenter',(e)=>{
+        boxes.forEach(box=>box.style.backgroundColor='white')
+        let hex='#';
+        for(let i=0;i<6;i++){
+            const randomIndex=randomNum(colors);
+            hex+=colors[randomIndex];
+        }
+        box.style.backgroundColor=hex;
+    })
+})
+
+const randomNum=(colors)=>Math.floor(Math.random()*colors.length);
