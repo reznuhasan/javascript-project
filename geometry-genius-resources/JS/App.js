@@ -1,4 +1,5 @@
 const btns=document.querySelectorAll('.btn');
+
 // Find Value From Input.Gives Value
 const getBox=(input)=>{
     const inputs=document.querySelectorAll(input);
@@ -33,7 +34,7 @@ const setArea=(value,name)=>{
     p1.innerHTML=`${count}.${name}`
     p1.style.marginTop='5px'
     p1.style.textTransform='capitalize'
-    p2.innerHTML=`<span>${value}</span><span>cm</span><sup>2<sup>`
+    p2.innerHTML=`<span>${value.toFixed(2)}</span><span>cm</span><sup>2<sup>`
     p2.style.margin='0px 13px'
     div.appendChild(p1)
     div.appendChild(p2)
@@ -43,26 +44,28 @@ const setArea=(value,name)=>{
     div.style.marginTop='15px'
     div.style.alignItems='center'
     AreaElem.appendChild(div)
-    const convertBtns=document.querySelectorAll('#area-box .convert')
-    convert(convertBtns)
+    convert()
 }
+
 // Convert Part
-const convert=(convertBtns)=>{
+const convert=()=>{
+    const convertBtns=document.querySelectorAll('#area-box .convert')
     convertBtns.forEach(btn=>{
         btn.addEventListener('click',(e)=>{
+            e.stopImmediatePropagation();
             const childs=btn.parentNode.childNodes;
             const para=childs[1];
             const valueElem=para.children[0];
             const contentElem=para.children[1];
-            const value=parseFloat(valueElem.innerText).toFixed(4)
+            const value=parseFloat(valueElem.innerText)
             if(contentElem.innerText==='cm'){
                 const meter=value/100;
-                valueElem.innerText=meter;
+                valueElem.innerText=meter.toFixed(4);
                 contentElem.innerText='m';
                 btn.innerHTML=`Convert to cm<sup>2</sup>`
             }else if(contentElem.innerText==='m'){
                 const cm=value*100;
-                valueElem.innerText=cm;
+                valueElem.innerText=cm.toFixed(2);
                 contentElem.innerText='cm';
                 btn.innerHTML=`Convert to m<sup>2</sup>`
             }
@@ -109,7 +112,6 @@ btns.forEach(btn=>btn.addEventListener('click',()=>{
 const colors=[1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
 
 const boxes=document.querySelectorAll('.box')
-console.log(boxes)
 boxes.forEach(box=>{
     box.addEventListener('mouseenter',(e)=>{
         boxes.forEach(box=>box.style.backgroundColor='white')
