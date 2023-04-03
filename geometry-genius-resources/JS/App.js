@@ -1,7 +1,7 @@
 const btns=document.querySelectorAll('.btn');
+// Find Value From Input.Gives Value
 const getBox=(input)=>{
     const inputs=document.querySelectorAll(input);
-   
     const input1=inputs[0].value;
     const input2=inputs[1].value;
     const inputValue1=parseFloat(input1).toFixed(2);
@@ -16,6 +16,7 @@ const getBox=(input)=>{
     
     
 }
+// AREA Part Set
 let count=0;
 const setArea=(value,name)=>{
     count+=1;
@@ -28,12 +29,12 @@ const setArea=(value,name)=>{
     button.style.color='#1090D8'
     button.style.border='none';
     button.style.padding='7px 10px';
+    button.setAttribute('class','convert');
     p1.innerHTML=`${count}.${name}`
     p1.style.marginTop='5px'
     p1.style.textTransform='capitalize'
-    p2.innerHTML=`${value}cm<sup>2<sup>`
+    p2.innerHTML=`<span>${value}</span><span>cm</span><sup>2<sup>`
     p2.style.margin='0px 13px'
-    // div.innerHTML=`${p1} ${p2} ${button}`
     div.appendChild(p1)
     div.appendChild(p2)
     div.appendChild(button)
@@ -42,7 +43,32 @@ const setArea=(value,name)=>{
     div.style.marginTop='15px'
     div.style.alignItems='center'
     AreaElem.appendChild(div)
+    const convertBtns=document.querySelectorAll('#area-box .convert')
+    convert(convertBtns)
 }
+const convert=(convertBtns)=>{
+    convertBtns.forEach(btn=>{
+        btn.addEventListener('click',(e)=>{
+            const childs=btn.parentNode.childNodes;
+            const para=childs[1];
+            const valueElem=para.children[0];
+            const contentElem=para.children[1];
+            const value=parseFloat(valueElem.innerText)
+            if(contentElem.innerText==='cm'){
+                const meter=value/100;
+                valueElem.innerText=meter;
+                contentElem.innerText='m';
+                btn.innerHTML=`Convert to cm<sup>2</sup>`
+            }else if(contentElem.innerText==='m'){
+                const cm=value*100;
+                valueElem.innerText=cm;
+                contentElem.innerText='cm';
+                btn.innerHTML=`Convert to m<sup>2</sup>`
+            }
+        })
+    })
+}
+
 btns.forEach(btn=>btn.addEventListener('click',()=>{
     if(btn.classList[1]==='triangle'){
         let Area=getBox('#box1 input')*0.5;
